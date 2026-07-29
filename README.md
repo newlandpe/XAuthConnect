@@ -117,19 +117,22 @@ Displays a consent page to the user, asking them to approve or deny the requeste
 
 ### `POST /xauth/token`
 
-Exchanges an authorization code for an access token. This should be a server-to-server request.
+Exchanges an authorization code for an access token, or a refresh token for a new access token. This should be a server-to-server request.
 
 - **Form Parameters:**
   - `client_id` (required): The client ID.
   - `client_secret` (required): The client secret.
-  - `code` (required): The authorization code received from the login step.
-  - `code_verifier` (required): The PKCE code verifier.
+  - `grant_type` (required): Either `authorization_code` or `refresh_token`.
+  - `code` (required for `authorization_code`): The authorization code received from the login step.
+  - `code_verifier` (required for `authorization_code`): The PKCE code verifier.
+  - `refresh_token` (required for `refresh_token`): The refresh token obtained previously.
 - **On Success:** Returns a JSON object with the access token.
   ```json
   {
     "access_token": "your_long_lived_access_token",
     "token_type": "Bearer",
-    "expires_in": 3600
+    "expires_in": 3600,
+    "refresh_token": "new_refresh_token"
   }
   ```
 
