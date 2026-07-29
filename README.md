@@ -30,7 +30,7 @@ The plugin generates a `config.yml` file in `plugin_data/XAuthConnect/` upon fir
 
 ### Web Integration (`web-integration`)
 
-- `server-port`: The port the web server will listen on (e.g., 8081).
+- `server-port`: The port the web server will listen on (e.g., 8080).
 - `code-timeout`: How long (in seconds) an authorization code is valid.
 
 ### SSL/TLS (`web-integration.ssl`)
