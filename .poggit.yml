@@ -9,3 +9,5 @@ projects:
         version: ^0.1.0
       - src: poggit/libasynql/libasynql
         version: ^4.0
+      - src: xauth-ecosystem/php-jwt-virion/php-jwt-virion
+        version: ^0.1.0
