@@ -72,6 +72,21 @@ web-integration:
 
 XAuthConnect provides a set of HTTP endpoints to handle the authentication flow.
 
+### `GET /.well-known/openid-configuration`
+
+Returns the OIDC discovery document with metadata about the authorization server.
+
+### `GET /xauth/jwks`
+
+Returns the JSON Web Key Set (JWKS) containing the public key for verifying ID tokens and access tokens.
+
+### `GET /xauth/login-events`
+
+Server-Sent Events (SSE) endpoint for the client to wait for the login result. The server streams a JSON event with the login result or a timeout notification.
+
+- **Query Parameters:**
+  - `request_id` (required): The request ID returned by the login endpoint.
+
 ### `GET /xauth/authorize`
 
 Starts the authorization process. This endpoint renders an HTML login page for the user.
