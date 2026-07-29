@@ -76,9 +76,43 @@ XAuthConnect provides a set of HTTP endpoints to handle the authentication flow.
 
 Returns the OIDC discovery document with metadata about the authorization server.
 
+- **On Success:** Returns a JSON object with OIDC discovery metadata.
+  ```json
+  {
+    "issuer": "http://127.0.0.1:8080",
+    "authorization_endpoint": "http://127.0.0.1:8080/xauth/authorize",
+    "token_endpoint": "http://127.0.0.1:8080/xauth/token",
+    "userinfo_endpoint": "http://127.0.0.1:8080/xauth/user",
+    "jwks_uri": "http://127.0.0.1:8080/xauth/jwks",
+    "revocation_endpoint": "http://127.0.0.1:8080/xauth/revoke",
+    "introspection_endpoint": "http://127.0.0.1:8080/xauth/introspect",
+    "scopes_supported": ["openid", "profile:nickname", "profile:uuid"],
+    "response_types_supported": ["code"],
+    "grant_types_supported": ["authorization_code", "refresh_token"],
+    "subject_types_supported": ["public"],
+    "id_token_signing_alg_values_supported": ["RS256"],
+    "token_endpoint_auth_methods_supported": ["client_secret_post"]
+  }
+  ```
+
 ### `GET /xauth/jwks`
 
 Returns the JSON Web Key Set (JWKS) containing the public key for verifying ID tokens and access tokens.
+
+- **On Success:** Returns a JSON object with a `keys` array.
+  ```json
+  {
+    "keys": [
+      {
+        "kty": "RSA",
+        "kid": "...",
+        "n": "...",
+        "e": "AQAB",
+        "use": "sig"
+      }
+    ]
+  }
+  ```
 
 ### `GET /xauth/login-events`
 
