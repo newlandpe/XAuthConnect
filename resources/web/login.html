@@ -51,7 +51,6 @@
         const usernameField = document.getElementById('username-field');
         const passwordField = document.getElementById('password-field');
         
-        // Функція для відновлення стану форми
         function resetFormState() {
             loginButton.classList.remove('loading', 'disabled');
             loginForm.classList.remove('disabled');
@@ -60,9 +59,8 @@
         document.getElementById('login-form').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // 1. Додаємо класи Semantic UI для активації лоадера на кнопці та вимкнення форми
             loginButton.classList.add('loading', 'disabled');
-            loginForm.classList.add('disabled'); // Вимикаємо форму, щоб запобігти повторному надсиланню
+            loginForm.classList.add('disabled');
             
             const formData = new URLSearchParams(new FormData(this));
 
@@ -75,9 +73,7 @@
                 if (data.request_id) {
                     connectWithSSE(data.request_id);
                 } else {
-                    // Якщо немає request_id (наприклад, помилка валідації на сервері), відновлюємо стан кнопки
                     resetFormState(); 
-                    // Reload the page with an error
                     const currentUrl = new URL(window.location.href);
                     currentUrl.searchParams.set('error', 'login_failed');
                     window.location.href = currentUrl.href;
@@ -85,7 +81,7 @@
             })
             .catch(error => {
                 console.error('Login request failed:', error);
-                resetFormState(); // Відновлюємо стан у разі помилки мережі
+                resetFormState();
                 alert('An error occurred during login. Please try again.');
             });
         });
