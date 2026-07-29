@@ -5,7 +5,7 @@ projects:
   XAuthConnect:
     path: ""
     libs:
-      - src: Hebbinkpro/pmmp-webserver/pmmp-webserver
-        version: ^0.5.0
+      - src: newlandpe/libAsyncHttp/libAsyncHttp
+        version: ^0.1.0
       - src: poggit/libasynql/libasynql
         version: ^4.0
