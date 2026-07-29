@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ChernegaSergiy\XAuthConnect\Service;
 
-use Firebase\JWT\JWT;
+use ChernegaSergiy\PhpJwtVirion\JwtHelper;
 
 class IdTokenService
 {
@@ -38,6 +38,7 @@ class IdTokenService
             $payload['nonce'] = $nonce;
         }
 
-        return JWT::encode($payload, $privateKey, 'RS256', $kid);
+        $jwtHelper = new JwtHelper($privateKey, 'RS256');
+        return $jwtHelper->encode($payload);
     }
 }
