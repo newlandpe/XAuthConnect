@@ -27,11 +27,11 @@ class IdTokenService
 
         $payload = [
             'iss' => $this->issuerUrl,
-            'sub' => $username, // Subject - the user's identifier
-            'aud' => $clientId, // Audience - the client ID
-            'exp' => $currentTime + $expiry, // Expiration Time
-            'iat' => $currentTime, // Issued At
-            'auth_time' => $authTime, // Time when the authentication occurred
+            'sub' => $username,
+            'aud' => $clientId,
+            'exp' => $currentTime + $expiry,
+            'iat' => $currentTime,
+            'auth_time' => $authTime,
         ];
 
         if ($nonce !== null) {
