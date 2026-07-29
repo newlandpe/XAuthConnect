@@ -30,33 +30,31 @@ The plugin generates a `config.yml` file in `plugin_data/XAuthConnect/` upon fir
 
 ### Web Integration (`web-integration`)
 
-- `enabled`: (true/false) Master switch to enable or disable the web server.
-- `server-port`: The port the web server will listen on (e.g., 8443).
-- `base-url`: The public base URL of your server (e.g., "https://mc.yourdomain.com").
+- `server-port`: The port the web server will listen on (e.g., 8081).
 - `code-timeout`: How long (in seconds) an authorization code is valid.
 
-### SSL/TLS (`ssl`)
+### SSL/TLS (`web-integration.ssl`)
 
-- `cert-folder`: The folder within `plugin_data/XAuthConnect/` containing your SSL certificate files (`.pem`, `.cert`).
-- `passphrase`: The passphrase for your private key, if it is encrypted.
+- `enabled`: (true/false) Master switch to enable or disable SSL/TLS.
+- `cert-path`: The path to your SSL certificate file (e.g., `/path/to/your/fullchain.pem`).
+- `key-path`: The path to your private key file (e.g., `/path/to/your/privkey.pem`).
 
-### Registered Clients (`registered-clients`)
+### Registered Clients (`web-integration.registered-clients`)
 
 This is where you define the applications that can connect to your server.
 
 ```yaml
-registered-clients:
-  forum:
-    client-id: "forum_client_123"
-    client-secret: "super_secret_key"
-    name: "Community Forum"
-    redirect-uris:
-      - "https://forum.example.com/auth/callback"
-    allowed-scopes:
-      - "profile:nickname"
-      - "profile:uuid"
-    rate-limits:
-      requests-per-minute: 60
+web-integration:
+  registered-clients:
+    forum:
+      client-id: "forum_client_123"
+      client-secret: "super_secret_key"
+      name: "Community Forum"
+      redirect-uris:
+        - "https://forum.example.com/auth/callback"
+      allowed-scopes:
+        - "profile:nickname"
+        - "profile:uuid"
 ```
 
 - `client-id`: A unique identifier for your application.
@@ -64,14 +62,11 @@ registered-clients:
 - `name`: A display name for the application, shown on the login page.
 - `redirect-uris`: A list of valid URLs where the user can be redirected after authorization.
 - `allowed-scopes`: The data scopes this client is allowed to request.
-- `rate-limits`: The maximum number of requests per minute this client can make.
 
-### Database (`database`)
+### OIDC (`oidc`)
 
-- `type`: The database type to use (`sqlite` or `mysql`).
-- `worker-limit`: Number of threads for database queries.
-- `sqlite`: Contains the `file` name for the SQLite database.
-- `mysql`: Contains connection details (`host`, `user`, `password`, `database`, `port`) for MySQL.
+- `issuer_url`: The URL of your server, used as the `iss` claim in ID tokens (e.g., `https://auth.your-server.com`).
+- `private_key_path`: Path to the RSA private key file for signing ID tokens. If left empty, the key will be generated automatically at `plugin_data/XAuthConnect/private.key`.
 
 ## API Endpoints
 
