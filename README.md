@@ -133,24 +133,6 @@ Exchanges an authorization code for an access token. This should be a server-to-
   }
   ```
 
-### `POST /xauth/token/refresh`
-
-Exchanges a refresh token for a new access token (and optionally a new refresh token).
-
-- **Form Parameters:**
-  - `client_id` (required): The client ID.
-  - `client_secret` (required): The client secret.
-  - `refresh_token` (required): The refresh token obtained previously.
-- **On Success:** Returns a JSON object with the new access token and refresh token.
-  ```json
-  {
-    "access_token": "new_long_lived_access_token",
-    "token_type": "Bearer",
-    "expires_in": 3600,
-    "refresh_token": "new_refresh_token"
-  }
-  ```
-
 ### `POST /xauth/introspect`
 
 Allows a client to query the active state of an access or refresh token.
