@@ -179,13 +179,14 @@ Exchanges an authorization code for an access token, or a refresh token for a ne
   - `code` (required for `authorization_code`): The authorization code received from the login step.
   - `code_verifier` (required for `authorization_code`): The PKCE code verifier.
   - `refresh_token` (required for `refresh_token`): The refresh token obtained previously.
-- **On Success:** Returns a JSON object with the access token.
+- **On Success:** Returns a JSON object with the access token. If the `openid` scope was granted, `id_token` is also included.
   ```json
   {
     "access_token": "your_long_lived_access_token",
     "token_type": "Bearer",
     "expires_in": 3600,
-    "refresh_token": "new_refresh_token"
+    "refresh_token": "new_refresh_token",
+    "id_token": "eyJhbGciOiJSUzI1NiIs..."
   }
   ```
 
