@@ -16,7 +16,7 @@ A powerful extension for the XAuth plugin that provides an OAuth 2.0-like authen
 ## Dependencies
 
 - **[XAuth](https://github.com/xauth-ecosystem/XAuth):** This plugin is an extension of XAuth and requires it to be installed and active.
-- **[PMMP WebServer](https://github.com/Hebbinkpro/pmmp-webserver):** The web server functionality is provided by this library, which is bundled with the plugin.
+- **[libAsyncHttp](https://github.com/newlandpe/libAsyncHttp):** The web server functionality is provided by this virion, which is bundled with the plugin.
 
 ## Installation
 
