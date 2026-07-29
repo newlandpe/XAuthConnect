@@ -4,23 +4,6 @@ declare(strict_types=1);
 
 namespace ChernegaSergiy\XAuthConnect;
 
-spl_autoload_register(function ($class) {
-    $prefix = 'Firebase\\JWT\\';
-    $base_dir = __DIR__ . '/../../lib/php-jwt/';
-
-    $len = strlen($prefix);
-    if (strncmp($prefix, $class, $len) !== 0) {
-        return;
-    }
-
-    $relative_class = substr($class, $len);
-    $file = $base_dir . str_replace('\\', '/', $relative_class) . '.php';
-
-    if (file_exists($file)) {
-        require $file;
-    }
-});
-
 use ChernegaSergiy\AsyncHttp\Server\HttpServer;
 use ChernegaSergiy\AsyncHttp\Server\Router;
 use ChernegaSergiy\XAuthConnect\Controller\WebController;
