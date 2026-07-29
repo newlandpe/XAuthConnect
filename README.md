@@ -1,6 +1,6 @@
 # XAuthConnect
 
-[![Poggit CI](https://poggit.pmmp.io/ci.shield/newlandpe/XAuthConnect/XAuthConnect)](https://poggit.pmmp.io/ci/newlandpe/XAuthConnect/XAuthConnect)
+[![Poggit CI](https://poggit.pmmp.io/ci.shield/xauth-ecosystem/XAuthConnect/XAuthConnect)](https://poggit.pmmp.io/ci/xauth-ecosystem/XAuthConnect/XAuthConnect)
 
 A powerful extension for the XAuth plugin that provides an OAuth 2.0-like authentication layer, allowing external web applications to securely access player data.
 
@@ -15,12 +15,12 @@ A powerful extension for the XAuth plugin that provides an OAuth 2.0-like authen
 
 ## Dependencies
 
-- **[XAuth](https://github.com/newlandpe/XAuth):** This plugin is an extension of XAuth and requires it to be installed and active.
+- **[XAuth](https://github.com/xauth-ecosystem/XAuth):** This plugin is an extension of XAuth and requires it to be installed and active.
 - **[PMMP WebServer](https://github.com/Hebbinkpro/pmmp-webserver):** The web server functionality is provided by this library, which is bundled with the plugin.
 
 ## Installation
 
-1. Download the latest stable version of XAuthConnect from [Poggit CI](https://poggit.pmmp.io/ci/newlandpe/XAuthConnect/XAuthConnect).
+1. Download the latest stable version of XAuthConnect from [Poggit CI](https://poggit.pmmp.io/ci/xauth-ecosystem/XAuthConnect/XAuthConnect).
 2. Place the `XAuthConnect.phar` file into the `plugins/` folder of your PocketMine-MP server.
 3. Restart your server. The plugin will generate its configuration files.
 
