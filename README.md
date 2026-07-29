@@ -98,6 +98,8 @@ Starts the authorization process. This endpoint renders an HTML login page for t
   - `code_challenge` (required): A PKCE code challenge.
   - `code_challenge_method` (required): The method used to derive the code challenge (S256 or plain).
   - `state` (optional): An opaque value used to maintain state between the request and callback.
+  - `nonce` (required for OpenID Connect): A nonce value to associate a Client session with an ID Token.
+  - `error` (optional): An error code from a previous failed attempt.
 
 ### `POST /xauth/login`
 
@@ -119,10 +121,12 @@ Displays a consent page to the user, asking them to approve or deny the requeste
   - `client_id` (required): The ID of the registered client.
   - `redirect_uri` (required): The callback URL where the user will be sent after authorization.
   - `scope` (required): A space-separated list of requested data scopes.
+  - `code` (required): The authorization code received from the login step.
   - `state` (optional): An opaque value used to maintain state between the request and callback.
   - `code_challenge` (required): The code challenge from the authorize step.
   - `code_challenge_method` (required): The code challenge method (S256 or plain).
   - `username` (required): The username of the authenticated player.
+  - `nonce` (required for OpenID Connect): A nonce value to associate a Client session with an ID Token.
 - **On Approval (POST):**
   - **Form Parameters:** Same as query parameters, plus `consent_action` (value: `approve`).
   - **On Success:** Redirects the user to the `redirect_uri` with a temporary `code` and the original `state`.
