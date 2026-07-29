@@ -39,6 +39,6 @@ class IdTokenService
         }
 
         $jwtHelper = new JwtHelper($privateKey, 'RS256');
-        return $jwtHelper->encode($payload);
+        return $jwtHelper->encode($payload, $kid);
     }
 }
